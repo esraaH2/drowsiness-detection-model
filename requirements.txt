@@ -1,0 +1,43 @@
+torch>=1.9.0
+numpy>=1.19.0
+scikit-learn>=0.24.0
+pandas>=1.1.0
+matplotlib>=3.3.0
+seaborn>=0.11.0
+```
+
+5. اضغط **Commit new file** ✅
+
+---
+
+### إنشاء `.gitignore`:
+
+1. اضغط **Add file** → **Create new file**
+2. اكتب اسم الملف: `.gitignore`
+3. انسخ هذا المحتوى:
+```
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Data
+*.csv
+data/
