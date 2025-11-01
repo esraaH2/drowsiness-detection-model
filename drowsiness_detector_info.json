@@ -1,0 +1,73 @@
+{
+  "model_name": "BiLSTM Drowsiness Detector",
+  "version": "1.0",
+  "description": "نموذج كشف النعاس باستخدام BiLSTM مع Multi-Head Attention",
+  "performance": {
+    "accuracy": 0.946277004595483,
+    "precision": 0.935391217081358,
+    "recall": 0.9501546681664792,
+    "f1_score": 0.9427151451739472,
+    "specificity": 0.9429034527049757
+  },
+  "architecture": {
+    "type": "BiLSTM + Multi-Head Attention",
+    "input_features": 22,
+    "hidden_size": 128,
+    "num_layers": 3,
+    "num_heads": 4,
+    "dropout": 0.3,
+    "sequence_length": 15
+  },
+  "features": [
+    "timestamp",
+    "confidence",
+    "gaze_0_x",
+    "gaze_0_y",
+    "gaze_0_z",
+    "gaze_1_x",
+    "gaze_1_y",
+    "gaze_1_z",
+    "gaze_angle_x",
+    "gaze_angle_y",
+    "pose_Tx",
+    "pose_Ty",
+    "pose_Tz",
+    "pose_Rx",
+    "pose_Ry",
+    "pose_Rz",
+    "AU25_r",
+    "AU26_r",
+    "AU45_r",
+    "AU25_c",
+    "AU26_c",
+    "AU45_c"
+  ],
+  "training": {
+    "loss_function": "Focal Loss",
+    "optimizer": "AdamW",
+    "scheduler": "CosineAnnealingWarmRestarts",
+    "batch_size": 32,
+    "best_epoch": 30
+  },
+  "error_analysis": {
+    "true_positives": 27030,
+    "true_negatives": 30832,
+    "false_positives": 1867,
+    "false_negatives": 1418
+  },
+  "usage": {
+    "framework": "PyTorch",
+    "python_version": "3.8+",
+    "dependencies": [
+      "torch",
+      "numpy",
+      "sklearn"
+    ],
+    "input_shape": [
+      1,
+      15,
+      22
+    ],
+    "output": "Binary classification (Alert=0, Drowsy=1)"
+  }
+}
